@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Money Blueprint — What's Your Money Type?</title>
+<meta name="description" content="A free quiz that reveals the money pattern shaping your financial life and exactly what to do about it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#0E0C09;color:#F0EAD6;overflow-x:hidden;line-height:1.6}
+:root{--gold:#C9A84C;--gold-border:rgba(201,168,76,0.25);--ink:#0E0C09;--ink-2:#161310;--ink-3:#1E1A14;--cream:#F0EAD6;--muted:#7A7060;--green:#2D6A4F}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(201,168,76,0.03) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(201,168,76,0.03) 60px)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:rgba(14,12,9,0.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--gold-border)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--gold);text-decoration:none}
+.nav-cta{background:var(--gold);color:var(--ink);border:none;padding:9px 22px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;transition:opacity 0.2s}
+.nav-cta:hover{opacity:.85}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;background:radial-gradient(ellipse 90% 60% at 50% 0%,#1c1508 0%,var(--ink) 65%)}
+.hero-eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:28px;opacity:0;animation:fadeUp 0.7s 0.1s ease forwards}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(44px,9vw,92px);font-weight:900;line-height:.95;letter-spacing:-2px;margin-bottom:28px;opacity:0;animation:fadeUp 0.7s 0.2s ease forwards}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:var(--muted);max-width:520px;line-height:1.8;margin-bottom:48px;font-weight:300;opacity:0;animation:fadeUp 0.7s 0.3s ease forwards}
+.hero-btn{background:var(--gold);color:var(--ink);border:none;padding:16px 44px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:opacity 0.2s,transform 0.15s;opacity:0;animation:fadeUp 0.7s 0.4s ease forwards}
+.hero-btn:hover{opacity:.88;transform:translateY(-1px)}
+.hero-note{margin-top:18px;font-size:13px;color:var(--muted);opacity:0;animation:fadeUp 0.7s 0.5s ease forwards}
+.types-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:60px;opacity:0;animation:fadeUp 0.7s 0.6s ease forwards}
+.type-chip{display:flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid var(--gold-border);font-size:13px;color:var(--muted);background:rgba(201,168,76,0.04)}
+.type-chip span:first-child{font-size:17px}
+.scroll-arrow{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;animation:bounce 2s infinite}
+.scroll-arrow::after{content:'↓';font-size:18px;color:var(--gold)}
+.proof-strip{background:var(--ink-2);border-top:1px solid var(--gold-border);border-bottom:1px solid var(--gold-border);padding:20px 40px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.proof-item{text-align:center}
+.proof-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--gold)}
+.proof-label{font-size:12px;color:var(--muted);margin-top:2px}
+section{position:relative;z-index:1}
+.section-inner{max-width:860px;margin:0 auto;padding:100px 32px}
+.section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:16px}
+.section-label::after{content:'';width:40px;height:1px;background:var(--gold-border)}
+h2.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,48px);font-weight:700;line-height:1.1;margin-bottom:24px}
+h2.section-title em{font-style:italic;color:var(--gold)}
+.section-body{font-size:17px;color:#A89F8C;line-height:1.85;max-width:620px;font-weight:300}
+.what-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--gold-border);margin-top:56px;border:1px solid var(--gold-border)}
+.what-cell{background:var(--ink-2);padding:30px 26px}
+.what-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:rgba(201,168,76,0.2);line-height:1;margin-bottom:12px}
+.what-cell h3{font-size:15px;font-weight:500;color:var(--cream);margin-bottom:8px}
+.what-cell p{font-size:14px;color:var(--muted);line-height:1.7}
+.pull-quote-section{background:var(--ink-3);border-top:1px solid var(--gold-border);border-bottom:1px solid var(--gold-border);padding:80px 32px;text-align:center}
+.pull-quote{font-family:'Playfair Display',serif;font-size:clamp(19px,4vw,30px);font-style:italic;color:var(--cream);max-width:680px;margin:0 auto;line-height:1.5}
+.pull-quote-attr{margin-top:20px;font-size:13px;color:var(--muted)}
+.types-section{background:var(--ink)}
+.types-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:48px}
+.type-card{border:1px solid var(--gold-border);padding:26px 22px;background:var(--ink-2);transition:border-color 0.2s,background 0.2s}
+.type-card:hover{border-color:rgba(201,168,76,0.5);background:var(--ink-3)}
+.type-card-emoji{font-size:28px;margin-bottom:12px;display:block}
+.type-card h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);margin-bottom:6px}
+.type-card .tagline{font-size:13px;color:var(--muted);font-style:italic;line-height:1.5;margin-bottom:10px}
+.type-card .trait{font-size:13px;color:#8A9E8A;line-height:1.6}
+.type-card.architect-card{border-color:rgba(201,168,76,0.45);background:rgba(201,168,76,0.04)}
+.mystery-card{border:1px dashed var(--gold-border);padding:26px 22px;background:rgba(201,168,76,0.03);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px}
+.mystery-card .q-mark{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:rgba(201,168,76,0.25)}
+.mystery-card p{font-size:14px;color:var(--muted)}
+.quiz-section{background:var(--ink-3);border-top:1px solid var(--gold-border);border-bottom:1px solid var(--gold-border)}
+.quiz-wrapper{max-width:680px;margin:0 auto;padding:80px 32px}
+.quiz-intro-text{font-size:16px;color:var(--muted);margin-bottom:40px;line-height:1.7}
+#quiz-container{position:relative}
+.screen{display:none}
+.screen.active{display:block}
+.progress-wrap{height:2px;background:rgba(201,168,76,0.15);margin-bottom:40px;overflow:hidden}
+.progress-fill{height:100%;background:var(--gold);transition:width 0.4s ease}
+.q-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500}
+.q-text{font-family:'Playfair Display',serif;font-size:clamp(17px,3vw,22px);font-weight:700;color:var(--cream);line-height:1.4;margin-bottom:28px}
+.options{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.opt-btn{background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.18);padding:13px 16px;text-align:left;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;color:#B0A690;line-height:1.5;transition:border-color 0.15s,background 0.15s,color 0.15s;display:flex;gap:12px;align-items:flex-start}
+.opt-btn:hover{border-color:var(--gold);color:var(--cream);background:rgba(201,168,76,0.06)}
+.opt-btn.selected{border-color:var(--gold);color:var(--cream);background:rgba(201,168,76,0.1)}
+.opt-letter{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:1px;min-width:14px;padding-top:2px}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center}
+.q-back{background:transparent;border:1px solid rgba(201,168,76,0.2);padding:10px 22px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--muted);cursor:pointer;transition:border-color 0.15s,color 0.15s}
+.q-back:hover{border-color:var(--gold);color:var(--cream)}
+.q-back:disabled{opacity:.3;cursor:default}
+.q-next{background:var(--gold);border:none;padding:11px 28px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;transition:opacity 0.2s}
+.q-next:hover{opacity:.85}
+.q-next:disabled{opacity:.3;cursor:default}
+.email-gate{background:rgba(201,168,76,0.06);border:1px solid var(--gold-border);padding:40px 32px;text-align:center}
+.gate-emoji{font-size:44px;margin-bottom:16px;display:block}
+.email-gate h3{font-family:'Playfair Display',serif;font-size:24px;color:var(--cream);margin-bottom:10px}
+.email-gate p{font-size:15px;color:var(--muted);margin-bottom:28px;line-height:1.7}
+.email-form{display:flex;flex-direction:column;gap:12px;max-width:380px;margin:0 auto}
+.email-input{background:rgba(255,255,255,0.05);border:1px solid var(--gold-border);padding:13px 18px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--cream);outline:none;transition:border-color 0.2s}
+.email-input::placeholder{color:var(--muted)}
+.email-input:focus{border-color:var(--gold)}
+.email-submit{background:var(--gold);border:none;padding:14px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:var(--ink);cursor:pointer;transition:opacity 0.2s}
+.email-submit:hover{opacity:.85}
+.email-skip{background:transparent;border:none;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);cursor:pointer;text-decoration:underline;padding:4px}
+.email-skip:hover{color:var(--cream)}
+.privacy-note{font-size:12px;color:var(--muted);margin-top:10px}
+.result-top{margin-bottom:24px}
+.result-badge{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--gold);padding:12px 24px;margin-bottom:16px}
+.result-badge-emoji{font-size:34px}
+.result-badge-name{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--gold)}
+.result-tagline{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--cream);margin-bottom:20px;line-height:1.4}
+.tally-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tally-chip{padding:4px 14px;border:1px solid rgba(201,168,76,0.2);font-size:13px;color:var(--muted)}
+.tally-chip.win{border-color:var(--gold);color:var(--gold);font-weight:500}
+.profile-box{background:rgba(255,255,255,0.03);border:1px solid var(--gold-border);padding:28px;font-size:15px;line-height:1.9;color:#B8AFA0;white-space:pre-wrap;margin-bottom:32px}
+.loading-dots{display:flex;gap:6px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:blink 1.2s infinite}
+.dot:nth-child(2){animation-delay:.2s}
+.dot:nth-child(3){animation-delay:.4s}
+.action-points{margin-bottom:32px}
+.action-points-title{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:500}
+.action-item{border:1px solid var(--gold-border);padding:22px 24px;margin-bottom:12px;background:rgba(255,255,255,0.02)}
+.action-num{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:2px;margin-bottom:8px;display:block}
+.action-item h4{font-size:16px;font-weight:600;color:var(--cream);margin-bottom:8px;line-height:1.4}
+.action-item p{font-size:14px;color:#9A9080;line-height:1.7;margin-bottom:0}
+.action-link{display:inline-block;margin-top:12px;color:var(--gold);font-size:14px;font-weight:600;text-decoration:underline;cursor:pointer}
+.action-link:hover{opacity:.8}
+.wl-box{background:rgba(201,168,76,0.07);border:1px solid var(--gold-border);padding:28px;text-align:center;margin-bottom:16px}
+.wl-box h4{font-family:'Playfair Display',serif;font-size:20px;color:var(--cream);margin-bottom:8px}
+.wl-box p{font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.6}
+.wl-form{display:flex;gap:10px;max-width:400px;margin:0 auto}
+.wl-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid var(--gold-border);padding:11px 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--cream);outline:none}
+.wl-input:focus{border-color:var(--gold)}
+.wl-btn{background:var(--gold);border:none;padding:11px 20px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;white-space:nowrap}
+.wl-btn:hover{opacity:.85}
+.wl-success{font-size:14px;color:#6DBF8A;margin-top:12px;display:none}
+.result-restart{background:transparent;border:1px solid rgba(201,168,76,0.2);padding:10px 22px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--muted);cursor:pointer}
+.result-restart:hover{border-color:var(--gold);color:var(--cream)}
+
+/* TOOLS SECTION */
+.tools-section{background:var(--ink-2);border-top:1px solid var(--gold-border)}
+.tool-card{background:var(--ink-3);border:1px solid var(--gold-border);padding:40px 36px;margin-bottom:24px}
+.tool-card h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--cream);margin-bottom:10px}
+.tool-card p.tool-sub{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:28px}
+.tool-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px}
+.tool-field label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.tool-field input[type="number"],.tool-field input[type="range"]{width:100%}
+.tool-field input[type="number"]{background:rgba(255,255,255,0.05);border:1px solid var(--gold-border);padding:11px 14px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--cream);outline:none}
+.tool-field input[type="number"]:focus{border-color:var(--gold)}
+.tool-field input[type="range"]{-webkit-appearance:none;height:4px;background:rgba(201,168,76,0.2);border-radius:2px;outline:none;margin-top:8px}
+.tool-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--gold);cursor:pointer}
+.range-labels{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:4px}
+.tool-calc-btn{background:var(--gold);border:none;padding:12px 28px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:var(--ink);cursor:pointer;transition:opacity 0.2s}
+.tool-calc-btn:hover{opacity:.85}
+.tool-result{display:none;margin-top:24px;padding:28px;background:rgba(201,168,76,0.07);border:1px solid var(--gold-border);text-align:center}
+.tool-result-number{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:var(--gold);line-height:1}
+.tool-result-label{font-size:14px;color:var(--muted);margin-top:6px;margin-bottom:16px}
+.tool-result p{font-size:14px;color:#A89F8C;line-height:1.7;margin-bottom:20px}
+.tool-email-row{display:flex;gap:10px;max-width:420px;margin:0 auto}
+.tool-email-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid var(--gold-border);padding:11px 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--cream);outline:none}
+.tool-email-input:focus{border-color:var(--gold)}
+.tool-email-btn{background:var(--gold);border:none;padding:11px 20px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;white-space:nowrap}
+.tool-email-success{font-size:14px;color:#6DBF8A;margin-top:12px;display:none}
+
+.get-section{background:var(--ink)}
+.get-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--gold-border);border:1px solid var(--gold-border);margin-top:48px}
+.get-cell{background:var(--ink-2);padding:34px 26px}
+.get-icon{font-size:26px;margin-bottom:14px;display:block}
+.get-cell h3{font-size:15px;color:var(--cream);margin-bottom:8px;font-weight:500}
+.get-cell p{font-size:14px;color:var(--muted);line-height:1.7}
+.get-soon{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-top:10px;display:block}
+.waitlist-section{background:radial-gradient(ellipse 80% 60% at 50% 0%,#1c1508,var(--ink));border-top:1px solid var(--gold-border);padding:120px 32px;text-align:center}
+.waitlist-section h2{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,58px);font-weight:900;line-height:1.1;margin-bottom:16px}
+.waitlist-section p{font-size:17px;color:var(--muted);margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto}
+.main-wl-form{display:flex;flex-direction:column;gap:12px;max-width:400px;margin:0 auto 16px}
+.main-wl-input{background:rgba(255,255,255,0.05);border:1px solid var(--gold-border);padding:15px 20px;font-family:'DM Sans',sans-serif;font-size:16px;color:var(--cream);outline:none;text-align:center;transition:border-color 0.2s}
+.main-wl-input::placeholder{color:var(--muted)}
+.main-wl-input:focus{border-color:var(--gold)}
+.main-wl-btn{background:var(--gold);border:none;padding:16px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:600;color:var(--ink);cursor:pointer;transition:opacity 0.2s}
+.main-wl-btn:hover{opacity:.85}
+.main-wl-success{font-size:15px;color:#6DBF8A;margin-top:12px;display:none}
+.waitlist-note{font-size:13px;color:var(--muted)}
+footer{background:var(--ink-2);border-top:1px solid var(--gold-border);padding:48px 32px;text-align:center}
+.footer-logo{font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:var(--gold);margin-bottom:12px}
+footer p{font-size:13px;color:var(--muted);margin-bottom:6px}
+footer a{color:var(--muted);text-decoration:underline}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+@keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:600px){nav{padding:14px 20px}.nav-cta{padding:8px 16px;font-size:12px}.proof-strip{gap:24px;padding:20px}.section-inner{padding:70px 20px}.quiz-wrapper{padding:60px 20px}.wl-form,.tool-email-row{flex-direction:column}.tool-card{padding:28px 20px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">The Money Blueprint</a>
+  <a href="#quiz" class="nav-cta">Take the free quiz</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Free · 5 Minutes · No Sign-Up Required to Start</div>
+  <h1 class="hero-title">What's Your<br><em>Money Type?</em></h1>
+  <p class="hero-sub">Most people know something is off with their finances. They just can't figure out why. This quiz names the exact pattern behind your money behaviour and shows you what to do about it.</p>
+  <a href="#quiz" class="hero-btn">Find your Money Type</a>
+  <p class="hero-note">No sign-up needed to start. Takes about 5 minutes.</p>
+  <div class="types-row">
+    <div class="type-chip"><span>🏛️</span><span>The Architect</span></div>
+    <div class="type-chip"><span>🦁</span><span>The Builder</span></div>
+    <div class="type-chip"><span>🐘</span><span>The Spender</span></div>
+    <div class="type-chip"><span>🦒</span><span>The Giver</span></div>
+    <div class="type-chip"><span>🐢</span><span>The Avoider</span></div>
+    <div class="type-chip"><span>🐆</span><span>The Chaser</span></div>
+  </div>
+  <div class="scroll-arrow">scroll</div>
+</section>
+
+<div class="proof-strip reveal">
+  <div class="proof-item"><div class="proof-num">6</div><div class="proof-label">Money types</div></div>
+  <div class="proof-item"><div class="proof-num">15</div><div class="proof-label">Honest questions</div></div>
+  <div class="proof-item"><div class="proof-num">In-depth</div><div class="proof-label">Personal profile</div></div>
+  <div class="proof-item"><div class="proof-num">Free</div><div class="proof-label">Always</div></div>
+</div>
+
+<section>
+  <div class="section-inner">
+    <div class="section-label reveal">What this is</div>
+    <h2 class="section-title reveal">You don't have a money problem.<br>You have a <em>money pattern.</em></h2>
+    <p class="section-body reveal">Every financial decision you make, how you spend, how you save, what you avoid, what you chase, is being driven by a blueprint that was formed before you were old enough to question it. Your family. Your culture. What you saw and heard about money growing up. This quiz brings that pattern to the surface so you can finally do something about it.</p>
+    <div class="what-grid">
+      <div class="what-cell reveal"><div class="what-num">01</div><h3>Answer honestly</h3><p>15 questions about how you actually behave with money. Not how you wish you did, how you do.</p></div>
+      <div class="what-cell reveal"><div class="what-num">02</div><h3>Meet your type</h3><p>Get your Money Type — your dominant financial pattern, what's driving it, and what keeps you where you are.</p></div>
+      <div class="what-cell reveal"><div class="what-num">03</div><h3>Read your profile</h3><p>A detailed breakdown written for your specific type, covering the psychology underneath and what it looks like in real life.</p></div>
+      <div class="what-cell reveal"><div class="what-num">04</div><h3>Take action</h3><p>Three specific next steps tailored to your type, so you leave with something to actually do today.</p></div>
+    </div>
+    <p class="reveal" style="margin-top:48px;font-size:18px;color:var(--cream);line-height:1.7;max-width:600px;font-family:'Playfair Display',serif;font-style:italic">The quiz reveals your Money Type — the pattern. The guide reveals your Money Blueprint — the root. You need both.</p>
+  </div>
+</section>
+
+<div class="pull-quote-section reveal">
+  <p class="pull-quote">"You can't out-earn a broken money pattern. You can only understand it and then change it."</p>
+  <p class="pull-quote-attr">The Money Blueprint</p>
+</div>
+
+<section class="types-section">
+  <div class="section-inner">
+    <div class="section-label reveal">The six types</div>
+    <h2 class="section-title reveal">Which pattern is<br><em>running your finances?</em></h2>
+    <p class="section-body reveal">Every money story has a pattern underneath it. Most people are a blend of two types, but one tends to run the show. Does any of these sound familiar?</p>
+    <div class="types-grid">
+      <div class="type-card architect-card reveal">
+        <span class="type-card-emoji">🏛️</span>
+        <h3>The Architect</h3>
+        <p class="tagline">"I've built something real. But I know the next level requires a different strategy."</p>
+        <p class="trait">Intentional, consistent, and genuinely in control. The Architect has done the work most people haven't, and they know it.</p>
+      </div>
+      <div class="type-card reveal">
+        <span class="type-card-emoji">🦁</span>
+        <h3>The Builder</h3>
+        <p class="tagline">"I'm disciplined. But I'm terrified of losing what I've built."</p>
+        <p class="trait">Strong with structure and saving, but the fear underneath makes it hard to enjoy or invest freely.</p>
+      </div>
+      <div class="type-card reveal">
+        <span class="type-card-emoji">🐘</span>
+        <h3>The Spender</h3>
+        <p class="tagline">"I earn well. I have nothing to show for it."</p>
+        <p class="trait">Works hard, earns consistently, and somehow ends every month with roughly the same balance as before.</p>
+      </div>
+      <div class="type-card reveal">
+        <span class="type-card-emoji">🦒</span>
+        <h3>The Giver</h3>
+        <p class="tagline">"I take care of everyone. Except myself."</p>
+        <p class="trait">The person family calls when things go wrong. Generous to the point of self-sacrifice and quietly exhausted by it.</p>
+      </div>
+      <div class="type-card reveal">
+        <span class="type-card-emoji">🐢</span>
+        <h3>The Avoider</h3>
+        <p class="tagline">"I want to get it right. So I don't move at all."</p>
+        <p class="trait">Researches everything. Acts on nothing. The fear of a wrong decision costs more than any bad decision ever would.</p>
+      </div>
+      <div class="type-card reveal">
+        <span class="type-card-emoji">🐆</span>
+        <h3>The Chaser</h3>
+        <p class="tagline">"I'm always moving. I never seem to arrive."</p>
+        <p class="trait">High energy, big ambitions, constantly pivoting. Earns well in good months but nothing sticks.</p>
+      </div>
+      <div class="mystery-card reveal">
+        <div class="q-mark">?</div>
+        <p>Which one is you? The quiz takes about 5 minutes to find out.</p>
+        <a href="#quiz" style="color:var(--gold);font-size:14px;text-decoration:underline;margin-top:8px;display:inline-block">Take the quiz now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quiz-section" id="quiz">
+  <div class="quiz-wrapper">
+    <div class="section-label reveal">The Quiz</div>
+    <h2 class="section-title reveal" style="margin-bottom:12px">Find your<br><em>Money Type</em></h2>
+    <p class="quiz-intro-text reveal">Be honest. The more truthful you are, the more useful your result will be. There are no wrong answers here, only honest ones.</p>
+    <div id="quiz-container">
+
+      <div id="screen-q" class="screen active">
+        <div class="progress-wrap"><div class="progress-fill" id="pfill" style="width:6.67%"></div></div>
+        <div class="q-label" id="qlabel">Question 1 of 15</div>
+        <div class="q-text" id="qtext"></div>
+        <div class="options" id="opts"></div>
+        <div class="quiz-nav">
+          <button class="q-back" id="qback" onclick="qBack()" disabled>Back</button>
+          <button class="q-next" id="qnext" onclick="qNext()" disabled>Next</button>
+        </div>
+      </div>
+
+      <div id="screen-gate" class="screen">
+        <div class="email-gate">
+          <span class="gate-emoji">✉️</span>
+          <h3>Your result is ready</h3>
+          <p>Drop your email to receive your full Money Type profile, plus be the first to know when <strong>The Money Blueprint</strong> guide launches with the complete 30-day system.</p>
+          <div class="email-form">
+            <input class="email-input" type="email" id="gate-email" placeholder="your@email.com">
+            <button class="email-submit" onclick="submitEmail()">Show me my result</button>
+            <button class="email-skip" onclick="skipEmail()">Skip and show my result</button>
+          </div>
+          <p class="privacy-note">No spam. No sharing your details. Just one email when the guide is ready.</p>
+        </div>
+      </div>
+
+      <div id="screen-result" class="screen">
+        <div class="result-top">
+          <p class="q-label">Your Money Type</p>
+          <div class="result-badge">
+            <span class="result-badge-emoji" id="rbEmoji"></span>
+            <span class="result-badge-name" id="rbName"></span>
+          </div>
+          <p class="result-tagline" id="rbTagline"></p>
+          <div class="tally-chips" id="tallyChips"></div>
+        </div>
+        <p class="q-label" style="margin-bottom:14px">Your personal profile</p>
+        <div class="profile-box" id="profileBox">
+          <div class="loading-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        </div>
+        <div class="action-points" id="actionPoints" style="display:none">
+          <p class="action-points-title">Three things to do next</p>
+          <div class="action-item"><span class="action-num">01</span><h4 id="a1title"></h4><p id="a1body"></p></div>
+          <div class="action-item"><span class="action-num">02</span><h4 id="a2title"></h4><p id="a2body"></p></div>
+          <div class="action-item"><span class="action-num">03</span><h4 id="a3title"></h4><p id="a3body"></p><a class="action-link" href="#waitlist">Get the full guide here</a></div>
+        </div>
+        <div class="wl-box" id="wlBox" style="display:none">
+          <h4>The Money Blueprint guide is coming</h4>
+          <p>The full 30-day system with all six Money Type profiles, a daily journal, family scripts, and real financial tools built for African lives. Join the list to be first in line.</p>
+          <div class="wl-form">
+            <input class="wl-input" type="email" id="wl-email" placeholder="your@email.com">
+            <button class="wl-btn" onclick="submitWaitlist()">Join the list</button>
+          </div>
+          <p class="wl-success" id="wl-success">You're on the list. We'll be in touch.</p>
+        </div>
+        <button class="result-restart" onclick="restartQuiz()" style="margin-top:16px">Take the quiz again</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS SECTION -->
+<section class="tools-section" id="tools">
+  <div class="section-inner">
+    <div class="section-label reveal">Free Tools</div>
+    <h2 class="section-title reveal">See the numbers<br><em>most people ignore</em></h2>
+    <p class="section-body reveal">Two quick calculators that show you something about your money that most people never actually sit down and work out.</p>
+
+    <!-- TOOL 1: WEALTH LEAK DETECTOR -->
+    <div class="tool-card reveal" style="margin-top:48px">
+      <h3>The Hidden Wealth Leak Detector</h3>
+      <p class="tool-sub">Most people have no idea how much they're losing each year to small, forgettable expenses. Subscriptions they forgot about. Daily habits that feel tiny. Bank fees that add up quietly. This tool adds it all up and shows you the annual number. Most people are genuinely shocked.</p>
+      <div class="tool-row">
+        <div class="tool-field">
+          <label>Eating out and takeaways per month ($)</label>
+          <input type="number" id="leak1" placeholder="e.g. 80" min="0">
+        </div>
+        <div class="tool-field">
+          <label>Subscriptions you barely use per month ($)</label>
+          <input type="number" id="leak2" placeholder="e.g. 30" min="0">
+        </div>
+        <div class="tool-field">
+          <label>Impulse and convenience purchases per month ($)</label>
+          <input type="number" id="leak3" placeholder="e.g. 50" min="0">
+        </div>
+        <div class="tool-field">
+          <label>Bank and transfer fees per month ($)</label>
+          <input type="number" id="leak4" placeholder="e.g. 15" min="0">
+        </div>
+        <div class="tool-field">
+          <label>Other small daily habits per month ($)</label>
+          <input type="number" id="leak5" placeholder="e.g. 40" min="0">
+        </div>
+      </div>
+      <button class="tool-calc-btn" onclick="calcLeak()">Calculate my annual wealth leak</button>
+      <div class="tool-result" id="leakResult">
+        <div class="tool-result-number" id="leakNumber"></div>
+        <div class="tool-result-label">lost every year to financial leaks</div>
+        <p id="leakMessage"></p>
+        <div class="tool-email-row">
+          <input class="tool-email-input" type="email" id="leak-email" placeholder="your@email.com">
+          <button class="tool-email-btn" onclick="submitToolEmail('leak')">Send me the Spending Audit PDF</button>
+        </div>
+        <p class="tool-email-success" id="leak-email-success">On its way. Check your inbox.</p>
+      </div>
+    </div>
+
+    <!-- TOOL 2: FINANCIAL RUNWAY -->
+    <div class="tool-card reveal">
+      <h3>Your Financial Runway Calculator</h3>
+      <p class="tool-sub">Your financial runway is how long you could survive if your income stopped today. It's one of the most revealing numbers in personal finance, and most people have never calculated it. Enter your numbers below and find out where you actually stand.</p>
+      <div class="tool-row">
+        <div class="tool-field">
+          <label>Monthly essential expenses ($)</label>
+          <input type="number" id="runway1" placeholder="e.g. 800" min="0">
+        </div>
+        <div class="tool-field">
+          <label>Total current savings ($)</label>
+          <input type="number" id="runway2" placeholder="e.g. 1200" min="0">
+        </div>
+      </div>
+      <button class="tool-calc-btn" onclick="calcRunway()">Calculate my runway</button>
+      <div class="tool-result" id="runwayResult">
+        <div class="tool-result-number" id="runwayNumber"></div>
+        <div class="tool-result-label" id="runwayLabel">months of financial runway</div>
+        <p id="runwayMessage"></p>
+        <div class="tool-email-row">
+          <input class="tool-email-input" type="email" id="runway-email" placeholder="your@email.com">
+          <button class="tool-email-btn" onclick="submitToolEmail('runway')">Send me the Emergency Fund Builder</button>
+        </div>
+        <p class="tool-email-success" id="runway-email-success">On its way. Check your inbox.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="get-section">
+  <div class="section-inner">
+    <div class="section-label reveal">Coming soon</div>
+    <h2 class="section-title reveal">The full <em>Money Blueprint</em> system</h2>
+    <p class="section-body reveal">The quiz is just the start. The complete guide goes 30 days deep so the change actually sticks.</p>
+    <div class="get-grid">
+      <div class="get-cell reveal"><span class="get-icon">🧠</span><h3>Money Blueprint Discovery</h3><p>Find the exact childhood patterns driving your financial behaviour and a step-by-step process to rewrite them for good.</p><span class="get-soon">In the guide</span></div>
+      <div class="get-cell reveal"><span class="get-icon">🔍</span><h3>All 6 Full Type Profiles</h3><p>The complete psychological breakdown for every Money Type, including the Architect track for people who are already building well.</p><span class="get-soon">In the guide</span></div>
+      <div class="get-cell reveal"><span class="get-icon">📓</span><h3>30-Day Journal System</h3><p>Daily prompts across four weeks. Every entry includes a practical action so you leave each day having done something, not just reflected.</p><span class="get-soon">In the guide</span></div>
+      <div class="get-cell reveal"><span class="get-icon">🛠️</span><h3>Real Financial Tools</h3><p>Budget templates, debt tracker, emergency fund calculator, multi-currency guide and the Hidden Wealth Leak Audit, built for African financial lives.</p><span class="get-soon">Bonus for early buyers</span></div>
+      <div class="get-cell reveal"><span class="get-icon">💬</span><h3>Family Money Scripts</h3><p>The actual words for the conversations most Africans dread: setting support limits, sibling property, sending less without breaking relationships.</p><span class="get-soon">In the guide</span></div>
+      <div class="get-cell reveal"><span class="get-icon">📈</span><h3>The Architect Track</h3><p>For people who already have the basics right. A dedicated section on what comes next, and the specific trap that takes down even the most disciplined builders.</p><span class="get-soon">In the guide</span></div>
+      <div class="get-cell reveal" style="border:1px solid rgba(201,168,76,0.4);background:rgba(201,168,76,0.05);grid-column:1/-1;text-align:center;padding:36px 32px"><span class="get-icon" style="font-size:32px">✨</span><h3 style="font-size:19px;margin-bottom:10px">And much more inside the guide</h3><p style="max-width:540px;margin:0 auto;font-size:14px;color:var(--muted);line-height:1.7">There is a lot more waiting inside than what is listed here. We did not want to give everything away before you got there. Every person who picks this up finds something they were not expecting — something that hits closer to home than they thought a guide could. You will not regret it.</p><span class="get-soon" style="margin-top:14px">Revealed inside</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="waitlist-section" id="waitlist">
+  <h2 class="reveal">Be first.<br><em>Get it free.</em></h2>
+  <p class="reveal">Join the list and get The Money Blueprint at launch price, plus the full financial toolkit free for the first 100 people who sign up.</p>
+  <div class="main-wl-form reveal">
+    <input class="main-wl-input" type="email" id="main-wl-email" placeholder="Enter your email">
+    <button class="main-wl-btn" onclick="submitMainWaitlist()">Join the waitlist, it's free</button>
+  </div>
+  <p class="main-wl-success" id="main-wl-success">You're on the list. We'll email you when it's ready.</p>
+  <p class="waitlist-note reveal">No spam. No selling your details. One email when the guide launches.</p>
+</section>
+
+<footer>
+  <div class="footer-logo">The Money Blueprint</div>
+  <p>A money mindset and mechanics system for Africans who are ready to stop surviving and start building.</p>
+  <p style="margin-top:16px;font-size:12px">Got a question or want to collaborate? <a href="mailto:Kikelomo.e.adeniyi@gmail.com">Kikelomo.e.adeniyi@gmail.com</a></p>
+  <p style="margin-top:16px;font-size:11px;color:#4A4538">© 2026 The Money Blueprint. All rights reserved.</p>
+</footer>
+
+<script>
+const MAILCHIMP_URL = 'https://gmail.us10.list-manage.com/subscribe/post?u=a27df4cbc4adf8e349015fc66&id=e48ea6a022';
+
+// ── 15 QUESTIONS ─────────────────────────────────────
+const Qs = [
+  { t:"When your salary or income arrives, your first instinct is:", o:[
+    {l:"A", t:"Pay what needs to be paid, set aside savings, then plan the rest"},
+    {l:"B", t:"Feel relieved, then start thinking about what I can finally buy"},
+    {l:"C", t:"Transfer something to family or people who are waiting on me"},
+    {l:"D", t:"Feel anxious and avoid looking at my balance for a few days"},
+    {l:"E", t:"Move fast — invest, send, spend. Money sitting still makes me nervous"},
+    {l:"F", t:"Review how it fits my plan, allocate each portion, and move on"}
+  ]},
+  { t:"An unexpected expense hits — a medical bill, something breaks, an emergency. You feel:", o:[
+    {l:"A", t:"Inconvenienced but okay. I have a buffer."},
+    {l:"B", t:"Panicked. There's nothing to draw from."},
+    {l:"C", t:"I handle it, but feel guilty spending money that could have helped someone else"},
+    {l:"D", t:"Paralysed. Deep down I always knew something would go wrong."},
+    {l:"E", t:"Frustrated but I sort it quickly. Problems like this interrupt my momentum."},
+    {l:"F", t:"Fine. This is what the emergency fund is for."}
+  ]},
+  { t:"How would you honestly describe your relationship with saving?", o:[
+    {l:"A", t:"Consistent. Automated. I don't touch it."},
+    {l:"B", t:"Aspirational. I plan to start properly next month. Every month."},
+    {l:"C", t:"Family comes first. I send home before I save for myself."},
+    {l:"D", t:"I don't know where to save, so I don't. The options overwhelm me."},
+    {l:"E", t:"Saving feels boring. I'd rather my money be doing something."},
+    {l:"F", t:"I save consistently, invest a portion, and review my goals regularly"}
+  ]},
+  { t:"If someone asked how much you earn, your honest reaction would be:", o:[
+    {l:"A", t:"Comfortable enough. It's just a number."},
+    {l:"B", t:"Defensive. I worry it's not enough."},
+    {l:"C", t:"Evasive. If they know, the requests will follow."},
+    {l:"D", t:"Very uncomfortable. Money feels private and exposing."},
+    {l:"E", t:"I'd deflect. Whatever the number is, it's never high enough for where I want to be."},
+    {l:"F", t:"Comfortable sharing. It's a number like any other."}
+  ]},
+  { t:"You make a purchase that felt good in the moment. Afterwards, you feel:", o:[
+    {l:"A", t:"Fine. I budgeted for it."},
+    {l:"B", t:"Guilty and slightly panicked, even when I could afford it."},
+    {l:"C", t:"Fine about it, but someone will find a way to make me feel bad for spending on myself."},
+    {l:"D", t:"Regret. I second-guess most financial decisions."},
+    {l:"E", t:"Already thinking about the next thing. The satisfaction doesn't last."},
+    {l:"F", t:"At ease. It was in the budget and I enjoyed it without guilt."}
+  ]},
+  { t:"You had a genuinely good financial month — more than expected came in. What happened?", o:[
+    {l:"A", t:"I followed the plan. Saved a portion, paid ahead, invested some."},
+    {l:"B", t:"It was gone within two weeks on things I can barely account for."},
+    {l:"C", t:"I sent extra home, covered some things for people, and kept very little for myself."},
+    {l:"D", t:"I felt nervous and didn't enjoy it. I was waiting for something to go wrong."},
+    {l:"E", t:"I put it straight into something. An investment, a new direction, an opportunity."},
+    {l:"F", t:"I allocated the surplus deliberately: part invested, part to a specific goal, part enjoyed"}
+  ]},
+  { t:"What is your deepest, most honest financial fear?", o:[
+    {l:"A", t:"Losing everything I've built through one bad decision"},
+    {l:"B", t:"Never having enough. Always being one thing away from the edge."},
+    {l:"C", t:"Being seen as selfish if I start putting myself first financially"},
+    {l:"D", t:"Making the wrong move and setting myself back badly"},
+    {l:"E", t:"Staying at the same income level. Not growing. Stagnating."},
+    {l:"F", t:"Making a major strategic mistake that sets back years of careful building"}
+  ]},
+  { t:"When you think about investing — property, shares, starting something — you feel:", o:[
+    {l:"A", t:"I research it carefully and then act."},
+    {l:"B", t:"It feels like something other people do. Not really for me."},
+    {l:"C", t:"I want to, but feel guilty putting money into myself when family still needs support."},
+    {l:"D", t:"I freeze. What if I get it wrong?"},
+    {l:"E", t:"I get excited. Maybe too excited. I want results fast."},
+    {l:"F", t:"Engaged. I have a strategy, I review it, and I adjust based on what I learn."}
+  ]},
+  { t:"Growing up, money in your household was:", o:[
+    {l:"A", t:"Managed carefully. Treated like a tool."},
+    {l:"B", t:"A source of stress and tension. Always a problem to solve."},
+    {l:"C", t:"Everyone's business. Communal. Whatever you had, others had a claim on it."},
+    {l:"D", t:"Quiet. Nobody talked about it. That silence felt heavy."},
+    {l:"E", t:"Always moving. A deal, a plan, a hustle. Something was always in the works."},
+    {l:"F", t:"Discussed openly and handled responsibly. I learned practical money habits early."}
+  ]},
+  { t:"Which best describes how you currently feel about your financial life?", o:[
+    {l:"A", t:"Building steadily. The direction is right, even if the pace is slow."},
+    {l:"B", t:"I earn. It disappears. I don't fully understand why."},
+    {l:"C", t:"I look after everyone else's financial needs before my own."},
+    {l:"D", t:"I feel behind and overwhelmed. I don't know where to start."},
+    {l:"E", t:"Always chasing the next level. The ceiling keeps moving."},
+    {l:"F", t:"Solid. I know the direction and I'm moving steadily towards it."}
+  ]},
+  { t:"How do you feel about your current level of financial knowledge?", o:[
+    {l:"A", t:"Decent. I know enough to stay safe, but I know there's more to learn."},
+    {l:"B", t:"Honest answer: not great. I know what I should do, I just don't do it."},
+    {l:"C", t:"Reasonable for others, but I don't apply it to myself consistently."},
+    {l:"D", t:"I've read a lot but I'm scared I'll misapply it and make things worse."},
+    {l:"E", t:"I know a lot, especially about making money. Managing it is a different story."},
+    {l:"F", t:"Good. I keep learning, but I understand the fundamentals and apply them."}
+  ]},
+  { t:"When you picture your finances five years from now, you feel:", o:[
+    {l:"A", t:"Cautiously optimistic. I'm building but worry something could derail it."},
+    {l:"B", t:"Anxious. I hope things will be better but I'm not sure what changes."},
+    {l:"C", t:"Uncertain. It depends on so many people besides me."},
+    {l:"D", t:"Worried. Five years feels like a long time to keep getting it wrong."},
+    {l:"E", t:"Excited but vague. I have a big vision but not a concrete plan."},
+    {l:"F", t:"Confident. I have targets and a realistic path to reach them."}
+  ]},
+  { t:"How do you handle financial decisions that involve other people, family requests, shared costs, loans to friends?", o:[
+    {l:"A", t:"I help when I can, but I'm getting better at protecting my own plan."},
+    {l:"B", t:"I often say yes when I should say no, then quietly regret it."},
+    {l:"C", t:"I almost always say yes. Saying no feels impossible."},
+    {l:"D", t:"I avoid these situations where I can. The decisions feel overwhelming."},
+    {l:"E", t:"I help quickly and generously, sometimes without thinking about the impact."},
+    {l:"F", t:"I have clear limits and I hold them, kindly but firmly."}
+  ]},
+  { t:"If your income stopped tomorrow, how long could you comfortably survive on what you have saved?", o:[
+    {l:"A", t:"A few months. I have some buffer but it wouldn't last long."},
+    {l:"B", t:"Weeks, maybe. It would be very difficult very quickly."},
+    {l:"C", t:"Not long. Most of what I have is already committed or needed by others."},
+    {l:"D", t:"I'm honestly not sure. I try not to think about it."},
+    {l:"E", t:"It depends on what opportunities I could create. I'd find something fast."},
+    {l:"F", t:"More than 6 months, possibly longer. I built this buffer intentionally."}
+  ]},
+  { t:"What is your honest relationship with financial goals?", o:[
+    {l:"A", t:"I have some, but they live in my head more than on paper."},
+    {l:"B", t:"I set them at the start of the year. By March I've forgotten them."},
+    {l:"C", t:"My goals are mostly for others. I struggle to make them for myself."},
+    {l:"D", t:"Goals feel risky. If I commit and miss, it confirms something bad about me."},
+    {l:"E", t:"My goals are big and change often. I have many directions at once."},
+    {l:"F", t:"I set them, write them down, track them, and adjust them as life changes."}
+  ]}
+];
+
+// ── 6 TYPE PROFILES ──────────────────────────────────
+const Types = {
+  F: {
+    e:"🏛️", n:"The Architect",
+    tg:"You've built something real. The work now is making sure it keeps growing.",
+    actions:[
+      { t:"Audit your strategy, not just your habits",
+        b:"You have the habits down. What most Architects miss is stepping back to audit the strategy itself. Are your investments actually diversified or just spread across similar things? Is your income growing at the same pace as your costs? Is your financial plan still built for the life you want, or the life you had three years ago? Set aside two hours this month to review it properly." },
+      { t:"Protect against the trap most Architects fall into",
+        b:"The most common Architect failure isn't losing money through recklessness. It's losing ground through complacency. Success creates a kind of financial comfort that quietly stops people from pushing to the next level. The same discipline that built your foundation can keep you too cautious to grow it significantly. Notice if you've stopped learning, stopped adjusting, or started assuming the plan is finished." },
+      { t:"Find out what comes after the foundation",
+        b:"The Money Blueprint guide includes a dedicated Architect section covering the next-level moves that most financial books skip entirely, because they assume you're still in the early stages. This is written for people who already have the basics right." }
+    ],
+    waitlist:"You've already done the hard work. The guide will help you take it further."
+  },
+  A: {
+    e:"🦁", n:"The Builder",
+    tg:"Disciplined and structured, but the fear underneath makes it hard to fully enjoy or invest freely.",
+    actions:[
+      { t:"Separate your security from your identity",
+        b:"Your discipline is real and it's working. But when saving becomes something you do out of fear rather than purpose, it stops being a strategy and starts being a cage. This week, write down what you're actually building towards. Not just a number but a life. What does financial freedom look like for you personally?" },
+      { t:"Give yourself permission to enjoy what you've built",
+        b:"Set aside 5% of your income this month as a joy fund, money you are allowed to spend on yourself without justification. Not on bills, not on family, on something that makes your life feel genuinely good. Builders who never celebrate burn out. You've earned this." },
+      { t:"Go deeper on the fear underneath",
+        b:"The full Money Blueprint guide walks you through exactly where the fear of loss comes from, how it was installed, and how to build a financial life that feels like freedom rather than just safety." }
+    ],
+    waitlist:"Ready to build wealth that feels like freedom, not just security? The full guide is coming."
+  },
+  B: {
+    e:"🐘", n:"The Spender",
+    tg:"Works hard. Earns consistently. And somehow the money always finds somewhere to go.",
+    actions:[
+      { t:"Find out where the money is actually going",
+        b:"Pull up your last 30 days of transactions — banking app, mobile money, whatever you use. Don't judge, just look. Most Spenders are genuinely surprised by the pattern. Write down the three categories where money disappears fastest. That's where to start." },
+      { t:"Automate your savings before you see the money",
+        b:"Set up an automatic transfer for the day after payday, even if it's a small amount. The rule is simple: money you never see, you never spend. Start with whatever feels almost too small to matter. That amount is exactly right to begin with." },
+      { t:"Understand why you spend, not just where",
+        b:"Most Spenders aren't bad with money. They're using money to feel something: relief, reward, control, escape. The full Money Blueprint guide helps you identify your specific emotional triggers and build a budget that works with your personality, not against it." }
+    ],
+    waitlist:"The patterns keeping you stuck are completely changeable. The full guide shows you how."
+  },
+  C: {
+    e:"🦒", n:"The Giver",
+    tg:"The one everyone calls. The one who always finds a way. The one who takes care of everyone except themselves.",
+    actions:[
+      { t:"Set a fixed amount for family support and treat it like a bill",
+        b:"The single most powerful thing a Giver can do is decide in advance what they will give and stop there. Pick an amount you can genuinely sustain every month and put it in your budget as a fixed line. When it's gone, it's gone for that month. This isn't you caring less. It's you caring smarter." },
+      { t:"Open an account that is yours and only yours",
+        b:"If you don't already have a savings account nobody else knows about, open one this week. Put something in it, even the smallest amount. This is the account for your future, your retirement, your emergency, your foundation. You are allowed to have one." },
+      { t:"Learn how to hold the line with people you love",
+        b:"Financial boundaries with family are one of the hardest things to build, especially when your identity is tied to being the person who provides. The full Money Blueprint guide has real scripts for these conversations, a framework for saying no with love, and a system that lets you give generously without giving yourself away." }
+    ],
+    waitlist:"You give so much to others. It's time to build something for yourself too. The full guide is coming."
+  },
+  D: {
+    e:"🐢", n:"The Avoider",
+    tg:"Wants to get it right so badly that the move never actually happens.",
+    actions:[
+      { t:"Do one small financial thing today, not tomorrow",
+        b:"Not a plan, not research, an action. Open a savings account if you don't have one. Move a small amount of money into it. Cancel one subscription you forgot about. The goal isn't the action itself. It's proving to yourself that financial action is survivable. Because it is." },
+      { t:"Calculate the real cost of waiting",
+        b:"Take the financial decision you've been putting off longest. Write down what it would cost you in money, opportunity, or peace of mind to wait another 12 months. Avoiders often underestimate this number significantly. The risk of doing nothing is always real, it's just quieter than the risk of doing something." },
+      { t:"Understand where the freeze actually comes from",
+        b:"Financial paralysis almost always has a root — something seen or experienced that told you one wrong move is catastrophic. The full Money Blueprint guide works through that root directly, with practical steps for moving from frozen to functioning, starting with the smallest possible thing." }
+    ],
+    waitlist:"The first step is always the hardest. The full guide is designed to make it manageable."
+  },
+  E: {
+    e:"🐆", n:"The Chaser",
+    tg:"Always moving. Always building. Always one opportunity away from the breakthrough that keeps moving.",
+    actions:[
+      { t:"Apply the 30-day rule to every new financial commitment",
+        b:"Before you say yes to any new investment, business idea, or financial opportunity, wait 30 days. Put it in a note. Come back to it. If it still makes sense in 30 days with a clear head, proceed. Most Chasers discover that half the things they nearly committed to look completely different a month later." },
+      { t:"Build one financial thing you never touch",
+        b:"Set up one automated investment, even a small one, that runs every month regardless of what else is happening. No touching it when an opportunity comes up. No pausing when things get exciting. The Chaser's edge is energy and ambition. The missing piece is one untouchable foundation." },
+      { t:"Find out what you're really chasing",
+        b:"Chasers are often running from something as much as they're running towards something. The full Money Blueprint guide helps you separate genuine ambition from anxiety, build financial structures that match your energy, and finally start arriving at the destinations you've been aiming for." }
+    ],
+    waitlist:"Your ambition is a genuine asset. The full guide helps you build a system that keeps up with it."
+  }
+};
+
+// ── DETAILED WRITTEN PROFILES ─────────────────────────
+const Profiles = {
+  F:`WHO YOU ARE WITH MONEY
+
+You've done something that most people around you haven't. You have a plan. You follow it. Your financial life isn't perfect, but it has direction, and you understand the basics well enough to make consistent, intentional decisions. You probably have an emergency fund, some form of investment or savings, and a rough map of where you're trying to go. That puts you in a small minority, and it didn't happen by accident. You worked for it.
+
+WHAT TO KNOW ABOUT YOUR POSITION
+
+The Architect's challenge isn't fixing something broken. It's staying sharp when things are going well. Financial complacency is one of the quietest wealth destroyers there is, not recklessness, not ignorance, but the slow drift that happens when your systems are working and you stop paying close attention. It tends to look like sticking with the same investments for too long without reviewing them, assuming the plan is still right for a life that has quietly changed, or stopping the kind of learning that got you to this position in the first place.
+
+THE TRAP MOST ARCHITECTS FALL INTO
+
+There's a specific failure mode that takes down capable, disciplined builders: they optimise the foundation so well that they never build the upper floors. The emergency fund is solid. The savings are steady. And then years pass without the bold moves that would actually accelerate wealth, because those moves carry more uncertainty than the systems already in place. Playing not to lose is a strategy, but it's not the same as playing to win. The Architect eventually has to choose between protecting what's there and growing it significantly, and most wait too long to make that shift.
+
+THE SHIFT THAT TAKES IT FURTHER
+
+Review your strategy, not just your habits. The habits are working. The question is whether the strategy they're serving is still the right one for where you actually want to go. That review, done honestly, is usually where the next level of financial growth starts.
+
+The foundation is built. Now decide what you're building on top of it.`,
+
+  A:`WHO YOU ARE WITH MONEY
+
+You take money seriously. You have systems, a savings habit, a rough plan, some sense of where things are going. To most people around you, you probably look like you have it together financially. And in many ways, you do. You show up, you're consistent, you don't blow money carelessly. That discipline is real and it matters.
+
+WHAT'S REALLY GOING ON UNDERNEATH
+
+The thing that doesn't get talked about is the fear sitting behind all that structure. For a lot of Builders, the discipline isn't really about building. It's about not losing. There's a version of financial fear that looks exactly like financial responsibility from the outside. It shows up as checking your balance too often, feeling anxious when you spend on yourself even when you can afford it, or finding it hard to invest because what if something goes wrong? Somewhere along the way, you learned that financial safety could disappear quickly. So you hold on tight.
+
+HOW THIS SHOWS UP IN YOUR FINANCIAL LIFE
+
+You probably save consistently but find it hard to enjoy what you've built. You might hesitate on investments that could genuinely grow your wealth because the uncertainty feels too risky. Joy spending, money on experiences, on yourself, on things that aren't practical, might trigger guilt even when the budget is fine. The irony is that the same discipline keeping you stable could also be slowing your financial growth, because real wealth-building requires some calculated risk and some trust in yourself.
+
+THE SHIFT THAT CHANGES EVERYTHING
+
+The shift isn't about becoming less disciplined. It's about changing the reason behind the discipline. Building from purpose feels completely different from building from fear, and it leads to very different financial decisions. When you're clear on what you're actually building towards, the structure you already have becomes genuinely powerful rather than just protective.
+
+You don't need more discipline. You need a destination worth building towards.`,
+
+  B:`WHO YOU ARE WITH MONEY
+
+You work. You earn. And somehow, at the end of most months, there isn't much to show for it. This isn't about laziness or not caring. You're probably one of the more hardworking people you know. The problem isn't the income coming in. It's what happens to it once it arrives. Money flows through your hands at roughly the same pace regardless of how much there is, and you've probably noticed that your lifestyle has a way of expanding to meet whatever you earn.
+
+WHAT'S REALLY GOING ON UNDERNEATH
+
+A lot of Spenders grew up around financial stress, and somewhere in that experience, a quiet belief formed: money doesn't stay. So when it arrives, the instinct is to use it, a reward for surviving another hard stretch, a way to feel abundant in the moment before it's gone anyway. Spending can be a form of emotional regulation that most people never name. It's not greed. It's often relief, or comfort, or the one area of life where you feel like you have some control.
+
+HOW THIS SHOWS UP IN YOUR FINANCIAL LIFE
+
+Two weeks after payday, the account is quiet again. You can name broadly where money went but not specifically. The savings plan keeps starting next month. There might be subscriptions, small purchases, generous gestures, meals out, things sent home. None of them huge individually, but together they consume everything. The painful part is that more income doesn't fix it, because the lifestyle simply adjusts upward to absorb whatever arrives.
+
+THE SHIFT THAT CHANGES EVERYTHING
+
+The shift that works for Spenders is almost always structural, not motivational. You cannot willpower your way out of this pattern. The urge to spend is faster than the decision to save. What works is removing the decision entirely: automating savings on payday, before you see the money, before the month has a chance to claim it. Give every dollar a destination before it arrives. The money that's already allocated doesn't feel the same as money sitting in your account waiting to be spent.
+
+You don't have a spending problem. You have a system problem. Build the system.`,
+
+  C:`WHO YOU ARE WITH MONEY
+
+You are the person people call. When there's a financial problem in your family or your circle, your name comes up. You find a way even when it's genuinely hard, and people know that about you. In a lot of African families and communities, this role gets assigned early, often before you were old enough to choose it, and it becomes so tied to who you are that separating yourself from it feels almost impossible. You are generous because you genuinely love people. But the financial cost of that generosity is real, and most of the time nobody is counting it except you.
+
+WHAT'S REALLY GOING ON UNDERNEATH
+
+The Giver's pattern usually goes deeper than just wanting to help. For many people in this position, the giving is also tied to belonging. Being the provider means being needed, being valued, being a good son or daughter or sibling or friend. To pull back even slightly, even reasonably, can feel like a betrayal of everything you were raised to be. So the money keeps going out, not always because you have it to give, but because the cost of not giving feels higher than the cost of going without yourself.
+
+HOW THIS SHOWS UP IN YOUR FINANCIAL LIFE
+
+You send money home before you save for yourself. Your emergency fund, if it exists, is the first thing to go when someone else has an emergency. You find it difficult to spend money on yourself without guilt, but you can spend freely on other people. Your income isn't small. It just disappears into other people's lives. And underneath the generosity, if you're honest, there's a quiet exhaustion. You love the people you give to. You're tired of the way it works.
+
+THE SHIFT THAT CHANGES EVERYTHING
+
+The shift that changes everything for a Giver isn't learning to stop caring. It's understanding that building your own financial foundation is one of the most loving things you can do for the people who depend on you. A depleted giver helps people through crisis after crisis and never has the resources to genuinely change anyone's circumstances, including their own. A financially grounded person can give meaningfully for decades. You are not the family bank. You are a person who loves their family. Those are different things, and your finances need to reflect the difference.
+
+You cannot pour from empty. Fill yourself first. That is not selfishness. That is strategy.`,
+
+  D:`WHO YOU ARE WITH MONEY
+
+You think about money carefully. Maybe too carefully. You are aware of your financial situation, possibly more aware than people who earn less and stress less, and that awareness hasn't made things easier. You know what you should probably do. You've researched it. You've thought through the options. And somehow the action never quite happens. From the outside this might look like laziness, but it isn't. It's something closer to a very deep form of caution that has quietly become a cage.
+
+WHAT'S REALLY GOING ON UNDERNEATH
+
+Avoiders almost always have a specific reason for the freeze. Sometimes it's something witnessed: a parent who lost a business, a family financial collapse, a period of real hardship that felt permanent. Sometimes it's the fear of being blamed if something goes wrong. Sometimes it's the belief, running quietly underneath everything, that you will somehow get it wrong in a way other people wouldn't. The avoidance isn't random. It's protection. Understanding what it's protecting you from is the first real step.
+
+HOW THIS SHOWS UP IN YOUR FINANCIAL LIFE
+
+Decisions that should take a week take months or years. Accounts that should exist don't, because choosing where to put the money felt too complicated. Opportunities pass not because you missed them but because by the time you felt ready, they were gone. The painful part is that the cost of not deciding is always real. It's just quieter and slower than the cost of a bad decision. Inflation is eating your savings while you research. Time is passing while you wait to feel ready. The paralysis has a price tag. It's just not printed anywhere obvious.
+
+THE SHIFT THAT CHANGES EVERYTHING
+
+The shift for an Avoider is almost never about making a better decision. It's about making a smaller one. The nervous system learns safety from experience, not from planning. Every small financial action you complete — opening an account, moving a tiny amount, cancelling one thing, starting anything — teaches your brain that financial action is survivable. You don't need to make the big move. You need to make the small move so many times that the big move stops feeling so terrifying.
+
+You don't need to get it perfect. You need to get it started.`,
+
+  E:`WHO YOU ARE WITH MONEY
+
+You are someone with real financial energy. You see opportunities other people miss. You move fast, you think big, and when things are going well, they go very well. You've probably had months, maybe even years, where the income was genuinely impressive. The frustration isn't that you can't make money. It's that the money doesn't seem to stick. No matter how much comes in, the balance never quite reflects the effort that went into earning it.
+
+WHAT'S REALLY GOING ON UNDERNEATH
+
+The Chaser pattern is almost always powered by more than just ambition. For a lot of people in this pattern, the movement is also a form of anxiety management. If you're always building something new, you don't have to sit with the discomfort of what's already there. There might also be a scarcity belief running underneath: the feeling that you have to move constantly or fall behind, that the opportunities will dry up, that stillness is the same as failure. The energy is real. But some of it is running away from something as much as it's running towards something.
+
+HOW THIS SHOWS UP IN YOUR FINANCIAL LIFE
+
+Strong months followed by dry ones. Multiple things started, not all of them finished. Money that gets made goes straight into the next thing before it has a chance to become wealth. The investment that made sense at 11pm looks different at 11am the following week, but by then the commitment has been made. There's a version of this where years of genuine effort and real income have produced surprisingly little in terms of accumulated assets, and that gap between what was earned and what remains is the clearest sign that the system needs changing, not the effort level.
+
+THE SHIFT THAT CHANGES EVERYTHING
+
+The shift that works for Chasers is building one financial thing that is completely off limits. One automated investment, one savings account, one asset that you do not redirect no matter what opportunity comes along. The Chaser's edge, the energy, the ambition, the ability to generate income, is genuinely valuable. What's missing is a foundation that captures some of that energy before it moves on to the next thing. Slow is not the enemy of growth. Slow, for a Chaser, is the only thing that actually builds.
+
+You have everything it takes. You just need one thing you refuse to touch.`
+};
+
+// ── HYBRID PARAGRAPHS ────────────────────────────────
+const Hybrids = {
+  F:{ A:"Your results also show a Builder thread alongside the Architect pattern. This usually means the foundation is solid but the fear of losing it quietly limits how boldly you invest or move. The work is learning to take the next level of risk from a position of strength rather than caution.", B:"A Spender thread also shows up. Which means some months the plan holds perfectly and some months it doesn't, usually when stress or a good month gives you permission to let go. Building systems that hold even in those months is the specific work.", C:"There's a Giver thread running through your results too. So you're building well in some areas while still carrying significant financial weight for others. Protecting your strategy from that pull, without breaking the relationships, is the specific challenge here.", D:"An Avoider thread also appears. You have the strategy but you still freeze on the bigger moves — the investments, the structural decisions, the things that would genuinely accelerate your growth. The foundation is there. The work is extending it further than feels comfortable.", E:"A Chaser thread also shows up. So the plan is solid until something exciting pulls you off it. Learning to evaluate new opportunities against your existing strategy, rather than instead of it, is the specific discipline that takes an Architect to the next level." },
+  A:{ F:"Your results also show Architect tendencies, which means you're closer to the next level than you might think. The structure is there, the knowledge is growing, and the gap between where you are and where you want to be is mostly about trusting the process rather than rebuilding it.", B:"A Spender thread also shows up in your results. So some months the structure holds and some months it doesn't, especially when you're stressed or when a good month gives you permission to exhale. The work is building systems that hold even when your emotions are telling you to let go.", C:"Your results also show a strong Giver thread running alongside your Builder pattern. You're trying to build a foundation while also being the foundation for other people. The work is learning to protect your structure without guilt, because you cannot give sustainably from a depleted place.", D:"There's also an Avoider thread in your results. This might show up as being structured about the basics but freezing on the bigger financial moves, the investing, the decisions that could actually change your trajectory. The discipline protects you at the level you're at. The avoidance keeps you from going further.", E:"Your results also show a Chaser thread. So some of the time you're structured and consistent, and other times a new opportunity pulls you completely off the plan. The Builder in you builds it. The Chaser in you finds reasons to redirect it. Holding the foundation steady while still pursuing growth is the specific work for your combination." },
+  B:{ F:"Your results also show Architect tendencies alongside the Spender pattern, which means you know what you should be doing and you're capable of being consistent, but the consistency isn't holding yet. The discipline is already there. The missing piece is a structure that catches the money before the spending habits do.", A:"Your results also show Builder tendencies. You know what you should be doing and you're capable of being consistent, but the consistency isn't holding yet. This is actually a strong combination to work with, because the discipline is already there. The missing piece is a structure that catches the money before the spending habits do.", C:"There's also a Giver thread in your results. So it's not just personal spending consuming the income, family and community are pulling on it too. The combination of emotional spending and financial obligation to others leaves very little space for you. A structure that honours the generosity while protecting what you need to build is the specific work.", D:"An Avoider thread also shows up. Money arrives, gets spent, and the anxiety about where it went leads to avoidance rather than a plan. Looking at the bank statement feels bad, so you don't look. Not looking means nothing changes. The smallest first step is just looking, without judgment, so you know what you're actually working with.", E:"Your results also show a Chaser pattern. Income is getting consumed from two directions at once: routine spending and pursuit of the next thing. Slowing down long enough to let some of it accumulate is the specific challenge here." },
+  C:{ F:"Your results also show Architect tendencies. You have real financial capability and knowledge, but the Giver pattern keeps consuming what you build. Protecting your strategy from the family pull, with kindness and clear limits, is what separates where you are from where you could be.", A:"There's also a Builder thread in your results. You have the structure and the discipline, but the family obligation keeps overriding the plan. You're building with one hand and giving away the foundation with the other. The work isn't building better systems. It's protecting the systems you already know how to build.", B:"Your results also show Spender tendencies alongside the Giver pattern. Money is going out to other people and also being spent in ways that don't serve you. It's possible the spending is partly emotional: a quiet reward for all the giving, a moment of having something for yourself before obligation takes over again. Both patterns need addressing, but the Giver piece usually needs to come first.", D:"An Avoider thread also shows up. So alongside carrying everyone else financially, there's also avoidance of your own money situation. Not looking too closely at what's left, not making plans because the plans feel pointless when obligations will consume them anyway. The avoidance is understandable, but it means the cycle continues unchanged.", E:"Your results also show a Chaser thread. The combination of Giver and Chaser is one of the most financially exhausting to live with. You're giving from one end and chasing the next income source from the other, constantly in motion, trying to generate enough to cover everyone including yourself. Learning to let something accumulate, even while you're still giving and still growing, is the specific work here." },
+  D:{ F:"Your results also show Architect tendencies alongside the Avoider pattern, which means you have real financial knowledge and structure, but the freeze still kicks in on the decisions that would genuinely accelerate your growth. The foundation is better than you give yourself credit for. The work is extending it.", A:"There's also a Builder thread in your results, which means you have real financial structure in some areas, but the bigger moves, the ones that could actually change your trajectory, are where the freeze kicks in. The foundation is there. The work is extending it further than feels safe.", B:"Your results also show a Spender thread. This can work together in a specific way: you avoid looking at the financial picture clearly, and that avoidance makes it easier to spend without confronting what's there. Clarity is the starting point. Just looking at what's actually in the accounts, without judgment, is the first move.", C:"A Giver thread also shows up in your results. You're paralysed about your own financial decisions but still somehow finding ways to support everyone around you. That pattern will grind you down slowly. Your own financial clarity needs to come first.", E:"Your results also show Chaser tendencies. This is a combination that swings between paralysis and sudden movement: frozen for months, then suddenly saying yes to something fast. The impulse decisions and the complete inaction both come from the same anxious energy. Building slow, consistent habits is the specific antidote for this combination." },
+  E:{ F:"A strong Architect thread also shows up in your results. This means you have real strategy and capability alongside the Chaser energy. The challenge is protecting your plan from the Chaser's impulse to redirect resources whenever something new and exciting appears.", A:"A Builder thread also shows up in your results. There is structure and discipline somewhere in you, but the Chaser energy disrupts it. You build it and then you redirect it. The work is protecting what the Builder in you creates from what the Chaser in you wants to do with it.", B:"Your results also show Spender tendencies alongside the Chaser pattern. Income is getting consumed from two directions: the day-to-day spending and the pursuit of the next opportunity. Both feel justified in the moment. The combination means very little actually accumulates. A single automated saving habit, started this week and never paused, would change your financial picture within 18 months.", C:"A Giver thread also shows up. So you're chasing growth with one hand and carrying people with the other. Your financial life is expensive in two directions simultaneously. Something has to be protected in between them, an amount that belongs to your future and is not available to either.", D:"Your results also show an Avoider thread. The Chaser energy takes over in moments of excitement, and the Avoider energy takes over in moments of uncertainty, meaning you swing between fast decisions and complete inaction. Building one consistent, boring financial habit cuts through both patterns because it doesn't require excitement or certainty, just showing up." }
+};
+
+// ── QUIZ LOGIC ────────────────────────────────────────
+let cur = 0, ans = new Array(15).fill(null), emailCollected = false, winnerKey = null;
+
+function showScreen(id){
+  document.querySelectorAll('#quiz-container .screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function renderQ(){
+  const q = Qs[cur];
+  document.getElementById('qlabel').textContent = `Question ${cur+1} of 15`;
+  document.getElementById('qtext').textContent = q.t;
+  document.getElementById('pfill').style.width = `${((cur+1)/15)*100}%`;
+  const opts = document.getElementById('opts');
+  opts.innerHTML = '';
+  q.o.forEach(o=>{
+    const b = document.createElement('button');
+    b.className = 'opt-btn'+(ans[cur]===o.l?' selected':'');
+    b.innerHTML = `<span class="opt-letter">${o.l}</span><span>${o.t}</span>`;
+    b.onclick = ()=>pickOpt(o.l);
+    opts.appendChild(b);
+  });
+  document.getElementById('qback').disabled = cur===0;
+  document.getElementById('qnext').disabled = !ans[cur];
+  document.getElementById('qnext').textContent = cur===14 ? 'See my result' : 'Next';
+}
+
+function pickOpt(l){
+  ans[cur]=l;
+  document.querySelectorAll('.opt-btn').forEach(b=>{
+    b.classList.toggle('selected', b.querySelector('.opt-letter').textContent===l);
+  });
+  document.getElementById('qnext').disabled = false;
+}
+
+function qNext(){
+  if(!ans[cur]) return;
+  if(cur===14){ showScreen('screen-gate'); return; }
+  cur++; renderQ();
+}
+function qBack(){ if(cur>0){cur--;renderQ();} }
+
+function getTally(){
+  const t={F:0,A:0,B:0,C:0,D:0,E:0};
+  ans.forEach(a=>{if(a)t[a]++;});
+  return t;
+}
+
+function submitEmail(){
+  const v = document.getElementById('gate-email').value.trim();
+  if(!v||!v.includes('@')){alert('Please enter a valid email address.');return;}
+  emailCollected = true;
+  saveEmail(v,'quiz-gate');
+  showResultScreen();
+}
+function skipEmail(){ showResultScreen(); }
+
+function showResultScreen(){
+  const tally = getTally();
+  const sorted = Object.entries(tally).filter(([,c])=>c>0).sort((a,b)=>b[1]-a[1]);
+  const topScore = sorted[0][1];
+  const tiedKeys = sorted.filter(([,c])=>c===topScore).map(([l])=>l);
+  const isTie = tiedKeys.length > 1;
+  winnerKey = tiedKeys[0];
+
+  if(isTie){
+    const t1=Types[tiedKeys[0]], t2=Types[tiedKeys[1]];
+    document.getElementById('rbEmoji').textContent = t1.e+' '+t2.e;
+    document.getElementById('rbName').textContent = t1.n+' + '+t2.n;
+    document.getElementById('rbTagline').textContent = 'You carry two patterns in roughly equal measure, which makes your result even more specific.';
+  } else {
+    const t=Types[winnerKey];
+    document.getElementById('rbEmoji').textContent = t.e;
+    document.getElementById('rbName').textContent = t.n;
+    document.getElementById('rbTagline').textContent = t.tg;
+  }
+
+  const chips = document.getElementById('tallyChips');
+  chips.innerHTML = '';
+  sorted.forEach(([l,c])=>{
+    const ch=document.createElement('div');
+    ch.className='tally-chip'+(c===topScore?' win':'');
+    ch.textContent=`${Types[l].e} ${Types[l].n}: ${c}`;
+    chips.appendChild(ch);
+  });
+
+  if(!emailCollected) document.getElementById('wlBox').style.display='block';
+  showScreen('screen-result');
+  showProfile(winnerKey, tally, isTie, tiedKeys, sorted);
+}
+
+function showProfile(winner, tally, isTie, tiedKeys, sorted){
+  const box = document.getElementById('profileBox');
+  box.innerHTML='<div class="loading-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+
+  setTimeout(()=>{
+    let text='';
+    if(isTie){
+      const t1=Types[tiedKeys[0]], t2=Types[tiedKeys[1]];
+      text=`YOUR MONEY TYPE: A BLEND OF ${t1.n.toUpperCase()} AND ${t2.n.toUpperCase()}
+
+Your answers split almost evenly between two patterns. That's not unusual. It usually means you're navigating two competing financial identities at the same time, which is often more exhausting than having one clear pattern because the two sides can pull in opposite directions.
+
+WHO YOU ARE WITH MONEY
+
+You carry the traits of both ${t1.n} and ${t2.n}. Some days, or some months, one pattern runs the show, and then circumstances shift and the other takes over. Both of these things can be true about the same person, and in your case, they are. ${t1.tg} And also: ${t2.tg}
+
+WHAT THIS COMBINATION MEANS
+
+When two money patterns are roughly equal in strength, neither one is fully in charge. That tends to create inconsistency. You're disciplined and then you're not, you're generous to yourself and then you're not, you move forward and then you freeze. The inconsistency isn't a character flaw. It's what happens when two learned financial behaviours are competing for the same resources and the same decisions.
+
+THE SHIFT THAT CHANGES EVERYTHING
+
+For someone with a blend result, the most important work is building financial systems that hold regardless of which pattern is active on a particular day. Automations, fixed allocations, pre-decided rules work precisely because they don't rely on you being in a particular headspace. When the system runs itself, neither pattern can derail it.
+
+You're not inconsistent. You're carrying two patterns at once. Build structures that are stronger than both.
+
+Read the full profiles for ${t1.n} and ${t2.n} in The Money Blueprint guide to understand both sides of your financial personality in depth.`;
+    } else {
+      text = Profiles[winner];
+      const secondEntry = sorted.filter(([l])=>l!==winner)[0];
+      if(secondEntry){
+        const gap = sorted[0][1] - secondEntry[1];
+        const secondScore = secondEntry[1];
+        const secondKey = secondEntry[0];
+        if(gap<=4 && secondScore>=2 && Hybrids[winner] && Hybrids[winner][secondKey]){
+          text += '\n\n' + Hybrids[winner][secondKey];
+        }
+      }
+    }
+    box.textContent = text;
+    showActionPoints(winnerKey);
+  }, 1600);
+}
+
+function showActionPoints(winner){
+  const ap = Types[winner].actions;
+  document.getElementById('a1title').textContent=ap[0].t;
+  document.getElementById('a1body').textContent=ap[0].b;
+  document.getElementById('a2title').textContent=ap[1].t;
+  document.getElementById('a2body').textContent=ap[1].b;
+  document.getElementById('a3title').textContent=ap[2].t;
+  document.getElementById('a3body').textContent=ap[2].b;
+  document.getElementById('actionPoints').style.display='block';
+}
+
+// ── TOOLS ─────────────────────────────────────────────
+function calcLeak(){
+  const vals = [1,2,3,4,5].map(i=>parseFloat(document.getElementById('leak'+i).value)||0);
+  const monthly = vals.reduce((a,b)=>a+b,0);
+  const annual = monthly * 12;
+  if(monthly===0){alert('Please enter at least one spending amount.');return;}
+  document.getElementById('leakNumber').textContent='$'+annual.toLocaleString();
+  let msg='';
+  if(annual < 1000) msg="That's $"+annual+" a year. Small individually, but those amounts compound over time. Redirect even half of this into savings and watch the difference.";
+  else if(annual < 3000) msg="That's $"+annual+" leaking out every year. Over five years, that's $"+(annual*5).toLocaleString()+" that could have been working for you instead. The Spending Audit PDF breaks down exactly how to plug the biggest leaks first.";
+  else msg="That's $"+annual+" a year — $"+(annual*5).toLocaleString()+" over five years — leaving your account in ways you barely notice. This is one of the clearest paths to changing your financial picture without earning a single dollar more.";
+  document.getElementById('leakMessage').textContent=msg;
+  document.getElementById('leakResult').style.display='block';
+}
+
+function calcRunway(){
+  const expenses = parseFloat(document.getElementById('runway1').value)||0;
+  const savings = parseFloat(document.getElementById('runway2').value)||0;
+  if(expenses===0){alert('Please enter your monthly essential expenses.');return;}
+  const months = savings/expenses;
+  const rounded = Math.floor(months*10)/10;
+  document.getElementById('runwayNumber').textContent=rounded<1?'Less than 1':rounded.toFixed(1);
+  let msg='';
+  if(months<1) msg="Less than one month. If your income stopped today, you'd be in serious difficulty within weeks. The Emergency Fund Builder PDF gives you a step-by-step plan to extend this runway to at least three months, starting with whatever you have right now.";
+  else if(months<3) msg=rounded.toFixed(1)+" months is a start, but the standard recommendation is at least three months of essential expenses. The Emergency Fund Builder PDF shows you exactly how to get there without disrupting your current financial life.";
+  else if(months<6) msg="A "+rounded.toFixed(1)+"-month runway is solid. The next target is six months, which gives you genuine breathing room for job changes, health issues, or family emergencies. The Emergency Fund Builder PDF covers exactly how to extend it further.";
+  else msg="A "+rounded.toFixed(1)+"-month runway puts you in a strong position. Most people never get here. The Emergency Fund Builder PDF is worth reading anyway — it covers how to make sure the fund stays intact and what to do once you've hit your target.";
+  document.getElementById('runwayMessage').textContent=msg;
+  document.getElementById('runwayResult').style.display='block';
+}
+
+function submitToolEmail(tool){
+  const input = document.getElementById(tool+'-email');
+  const v = input.value.trim();
+  if(!v||!v.includes('@')){alert('Please enter a valid email address.');return;}
+  saveEmail(v, tool+'-tool');
+  document.getElementById(tool+'-email-success').style.display='block';
+  document.querySelector('#'+tool+'Result .tool-email-row').style.display='none';
+}
+
+// ── EMAIL / WAITLIST ──────────────────────────────────
+function submitWaitlist(){
+  const v=document.getElementById('wl-email').value.trim();
+  if(!v||!v.includes('@')){alert('Please enter a valid email address.');return;}
+  saveEmail(v,'result-waitlist');
+  document.getElementById('wl-success').style.display='block';
+  document.querySelector('.wl-form').style.display='none';
+}
+
+function submitMainWaitlist(){
+  const v=document.getElementById('main-wl-email').value.trim();
+  if(!v||!v.includes('@')){alert('Please enter a valid email address.');return;}
+  saveEmail(v,'main-waitlist');
+  document.getElementById('main-wl-success').style.display='block';
+  document.querySelector('.main-wl-form').style.display='none';
+}
+
+function saveEmail(email, source){
+  if(MAILCHIMP_URL){
+    const fd=new FormData();
+    fd.append('EMAIL',email);
+    fd.append('SOURCE',source);
+    fetch(MAILCHIMP_URL,{method:'POST',body:fd,mode:'no-cors'});
+  }
+  console.log('['+source+']',email);
+}
+
+function restartQuiz(){
+  cur=0; ans=new Array(15).fill(null); emailCollected=false; winnerKey=null;
+  document.getElementById('actionPoints').style.display='none';
+  document.getElementById('wlBox').style.display='none';
+  renderQ(); showScreen('screen-q');
+  document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+}
+
+renderQ();
+
+const revEls=document.querySelectorAll('.reveal');
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.08});
+revEls.forEach(el=>revObs.observe(el));
+</script>
+</body>
+</html>
