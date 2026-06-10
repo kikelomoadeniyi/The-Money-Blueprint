@@ -10,8 +10,19 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:#0E0C09;color:#F0EAD6;overflow-x:hidden;line-height:1.6}
-:root{--gold:#C9A84C;--gold-border:rgba(201,168,76,0.25);--ink:#0E0C09;--ink-2:#161310;--ink-3:#1E1A14;--cream:#F0EAD6;--muted:#7A7060;--green:#2D6A4F}
+body{font-family:'DM Sans',sans-serif;background:#110F0C;color:#F0EAD6;overflow-x:hidden;line-height:1.6}
+:root{
+  --gold:#B8881E;
+  --gold-light:#D4A832;
+  --gold-border:rgba(184,136,30,0.28);
+  --ink:#110F0C;
+  --ink-2:#1A1712;
+  --ink-3:#221E18;
+  --cream:#F2E8D0;
+  --muted:#7D7363;
+  --green:#1E4D35;
+  --stone:#5C5448;
+}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(201,168,76,0.03) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(201,168,76,0.03) 60px)}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:rgba(14,12,9,0.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--gold-border)}
 .nav-logo{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--gold);text-decoration:none}
@@ -36,15 +47,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .proof-label{font-size:12px;color:var(--muted);margin-top:2px}
 section{position:relative;z-index:1}
 .section-inner{max-width:860px;margin:0 auto;padding:100px 32px}
-.section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:16px}
-.section-label::after{content:'';width:40px;height:1px;background:var(--gold-border)}
+.section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:16px;display:flex;align-items:center;gap:16px;font-weight:600}
+.section-label::after{content:'';width:40px;height:1px;background:var(--green);opacity:0.5}
 h2.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,48px);font-weight:700;line-height:1.1;margin-bottom:24px}
 h2.section-title em{font-style:italic;color:var(--gold)}
 .section-body{font-size:17px;color:#A89F8C;line-height:1.85;max-width:620px;font-weight:300}
 .what-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--gold-border);margin-top:56px;border:1px solid var(--gold-border)}
 .what-cell{background:var(--ink-2);padding:30px 26px}
 .what-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:rgba(201,168,76,0.2);line-height:1;margin-bottom:12px}
-.what-cell h3{font-size:15px;font-weight:500;color:var(--cream);margin-bottom:8px}
+.what-cell h3{font-size:15px;font-weight:600;color:var(--green);margin-bottom:8px}
 .what-cell p{font-size:14px;color:var(--muted);line-height:1.7}
 .pull-quote-section{background:var(--ink-3);border-top:1px solid var(--gold-border);border-bottom:1px solid var(--gold-border);padding:80px 32px;text-align:center}
 .pull-quote{font-family:'Playfair Display',serif;font-size:clamp(19px,4vw,30px);font-style:italic;color:var(--cream);max-width:680px;margin:0 auto;line-height:1.5}
@@ -111,8 +122,8 @@ h2.section-title em{font-style:italic;color:var(--gold)}
 .dot:nth-child(3){animation-delay:.4s}
 .action-points{margin-bottom:32px}
 .action-points-title{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:500}
-.action-item{border:1px solid var(--gold-border);padding:22px 24px;margin-bottom:12px;background:rgba(255,255,255,0.02)}
-.action-num{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:2px;margin-bottom:8px;display:block}
+.action-item{border:1px solid var(--gold-border);border-left:3px solid var(--green);padding:22px 24px;margin-bottom:12px;background:rgba(255,255,255,0.02)}
+.action-num{font-size:11px;color:var(--green);font-weight:700;letter-spacing:2px;margin-bottom:8px;display:block}
 .action-item h4{font-size:16px;font-weight:600;color:var(--cream);margin-bottom:8px;line-height:1.4}
 .action-item p{font-size:14px;color:#9A9080;line-height:1.7;margin-bottom:0}
 .action-link{display:inline-block;margin-top:12px;color:var(--gold);font-size:14px;font-weight:600;text-decoration:underline;cursor:pointer}
@@ -132,7 +143,7 @@ h2.section-title em{font-style:italic;color:var(--gold)}
 /* TOOLS SECTION */
 .tools-section{background:var(--ink-2);border-top:1px solid var(--gold-border)}
 .tool-card{background:var(--ink-3);border:1px solid var(--gold-border);padding:40px 36px;margin-bottom:24px}
-.tool-card h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--cream);margin-bottom:10px}
+.tool-card h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--green);margin-bottom:10px}
 .tool-card p.tool-sub{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:28px}
 .tool-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px}
 .tool-field label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
@@ -305,17 +316,7 @@ footer a{color:var(--muted);text-decoration:underline}
       </div>
 
       <div id="screen-gate" class="screen">
-        <div class="email-gate">
-          <span class="gate-emoji">✉️</span>
-          <h3>Your result is ready</h3>
-          <p>Drop your email to receive your full Money Type profile, plus be the first to know when <strong>The Money Blueprint</strong> guide launches with the complete 30-day system.</p>
-          <div class="email-form">
-            <input class="email-input" type="email" id="gate-email" placeholder="your@email.com">
-            <button class="email-submit" onclick="submitEmail()">Show me my result</button>
-            <button class="email-skip" onclick="skipEmail()">Skip and show my result</button>
-          </div>
-          <p class="privacy-note">No spam. No sharing your details. Just one email when the guide is ready.</p>
-        </div>
+        <!-- Gate removed — result shown first, email asked after -->
       </div>
 
       <div id="screen-result" class="screen">
@@ -327,6 +328,10 @@ footer a{color:var(--muted);text-decoration:underline}
           </div>
           <p class="result-tagline" id="rbTagline"></p>
           <div class="tally-chips" id="tallyChips"></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+            <a href="#tools" style="font-size:12px;color:var(--muted);text-decoration:none;padding:4px 12px;border:1px solid rgba(255,255,255,0.08);transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">↓ Wealth Leak Calculator</a>
+            <a href="#tools" style="font-size:12px;color:var(--muted);text-decoration:none;padding:4px 12px;border:1px solid rgba(255,255,255,0.08);transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">↓ Financial Runway Calculator</a>
+          </div>
         </div>
         <p class="q-label" style="margin-bottom:14px">Your personal profile</p>
         <div class="profile-box" id="profileBox">
@@ -338,14 +343,23 @@ footer a{color:var(--muted);text-decoration:underline}
           <div class="action-item"><span class="action-num">02</span><h4 id="a2title"></h4><p id="a2body"></p></div>
           <div class="action-item"><span class="action-num">03</span><h4 id="a3title"></h4><p id="a3body"></p><a class="action-link" href="#waitlist">Get the full guide here</a></div>
         </div>
-        <div class="wl-box" id="wlBox" style="display:none">
-          <h4>The Money Blueprint guide is coming</h4>
-          <p>The full 30-day system with all six Money Type profiles, a daily journal, family scripts, and real financial tools built for African lives. Join the list to be first in line.</p>
+        <div style="margin:28px 0 8px;padding:20px 22px;border:1px solid var(--gold-border);background:rgba(255,255,255,0.02)">
+          <p style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:12px">Two more free tools below</p>
+          <p style="font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.6">Before you leave — there are two calculators further down this page that most people find more eye-opening than the quiz itself. They take about 60 seconds each.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a href="#tools" style="display:inline-block;padding:9px 18px;border:1px solid var(--green);color:var(--green);font-size:13px;font-weight:600;text-decoration:none;transition:background 0.2s" onmouseover="this.style.background='rgba(30,77,53,0.15)'" onmouseout="this.style.background='transparent'">💸 How much am I leaking yearly?</a>
+            <a href="#tools" style="display:inline-block;padding:9px 18px;border:1px solid var(--green);color:var(--green);font-size:13px;font-weight:600;text-decoration:none;transition:background 0.2s" onmouseover="this.style.background='rgba(30,77,53,0.15)'" onmouseout="this.style.background='transparent'">🛤️ How long could I survive without income?</a>
+          </div>
+        </div>
+        <div class="wl-box" id="wlBox" style="display:none;margin-top:32px">
+          <h4>Want the full breakdown sent to your inbox?</h4>
+          <p style="margin-bottom:6px">Drop your email and we will send you your complete Money Type profile plus notify you when <strong>The Money Blueprint</strong> guide launches — August 2026, free for the first 100 people on the list.</p>
+          <p style="font-size:13px;color:var(--stone);margin-bottom:20px">No spam. No selling your details. Unsubscribe any time.</p>
           <div class="wl-form">
             <input class="wl-input" type="email" id="wl-email" placeholder="your@email.com">
-            <button class="wl-btn" onclick="submitWaitlist()">Join the list</button>
+            <button class="wl-btn" onclick="submitWaitlist()">Send me the full profile</button>
           </div>
-          <p class="wl-success" id="wl-success">You're on the list. We'll be in touch.</p>
+          <p class="wl-success" id="wl-success">You are on the list. Check your inbox.</p>
         </div>
         <button class="result-restart" onclick="restartQuiz()" style="margin-top:16px">Take the quiz again</button>
       </div>
@@ -357,7 +371,7 @@ footer a{color:var(--muted);text-decoration:underline}
 <!-- TOOLS SECTION -->
 <section class="tools-section" id="tools">
   <div class="section-inner">
-    <div class="section-label reveal">Free Tools</div>
+    <div class="section-label reveal" style="color:var(--green)">Free Tools</div>
     <h2 class="section-title reveal">See the numbers<br><em>most people ignore</em></h2>
     <p class="section-body reveal">Two quick calculators that show you something about your money that most people never actually sit down and work out.</p>
 
@@ -365,25 +379,36 @@ footer a{color:var(--muted);text-decoration:underline}
     <div class="tool-card reveal" style="margin-top:48px">
       <h3>The Hidden Wealth Leak Detector</h3>
       <p class="tool-sub">Most people have no idea how much they're losing each year to small, forgettable expenses. Subscriptions they forgot about. Daily habits that feel tiny. Bank fees that add up quietly. This tool adds it all up and shows you the annual number. Most people are genuinely shocked.</p>
+      <div style="margin-bottom:20px;padding:14px 18px;background:rgba(184,136,30,0.07);border-left:3px solid var(--gold)">
+        <label style="display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Enter amounts in your currency</label>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <label style="font-size:14px;color:var(--cream);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="leak-currency" value="₦" checked onchange="setCurrency('leak',this.value)"> ₦ Naira</label>
+          <label style="font-size:14px;color:var(--cream);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="leak-currency" value="GH₵" onchange="setCurrency('leak',this.value)"> GH₵ Cedis</label>
+          <label style="font-size:14px;color:var(--cream);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="leak-currency" value="KSh" onchange="setCurrency('leak',this.value)"> KSh Shillings</label>
+          <label style="font-size:14px;color:var(--cream);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="leak-currency" value="R" onchange="setCurrency('leak',this.value)"> R Rand</label>
+          <label style="font-size:14px;color:var(--cream);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="leak-currency" value="$" onchange="setCurrency('leak',this.value)"> $ Dollar</label>
+          <label style="font-size:14px;color:var(--cream);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="leak-currency" value="£" onchange="setCurrency('leak',this.value)"> £ Pounds</label>
+        </div>
+      </div>
       <div class="tool-row">
         <div class="tool-field">
-          <label>Eating out and takeaways per month ($)</label>
+          <label>Eating out and takeaways per month</label>
           <input type="number" id="leak1" placeholder="e.g. 80" min="0">
         </div>
         <div class="tool-field">
-          <label>Subscriptions you barely use per month ($)</label>
+          <label>Subscriptions you barely use per month</label>
           <input type="number" id="leak2" placeholder="e.g. 30" min="0">
         </div>
         <div class="tool-field">
-          <label>Impulse and convenience purchases per month ($)</label>
+          <label>Impulse and convenience purchases per month</label>
           <input type="number" id="leak3" placeholder="e.g. 50" min="0">
         </div>
         <div class="tool-field">
-          <label>Bank and transfer fees per month ($)</label>
+          <label>Bank and transfer fees per month</label>
           <input type="number" id="leak4" placeholder="e.g. 15" min="0">
         </div>
         <div class="tool-field">
-          <label>Other small daily habits per month ($)</label>
+          <label>Other small daily habits per month</label>
           <input type="number" id="leak5" placeholder="e.g. 40" min="0">
         </div>
       </div>
@@ -404,13 +429,24 @@ footer a{color:var(--muted);text-decoration:underline}
     <div class="tool-card reveal">
       <h3>Your Financial Runway Calculator</h3>
       <p class="tool-sub">Your financial runway is how long you could survive if your income stopped today. It's one of the most revealing numbers in personal finance, and most people have never calculated it. Enter your numbers below and find out where you actually stand.</p>
+      <div style="margin-bottom:20px;padding:14px 18px;background:rgba(184,136,30,0.07);border-left:3px solid var(--gold)">
+        <label style="display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Enter amounts in your currency</label>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <label style="font-size:14px;color:var(--cream);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="runway-currency" value="₦" checked onchange="setCurrency('runway',this.value)"> ₦ Naira</label>
+          <label style="font-size:14px;color:var(--cream);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="runway-currency" value="GH₵" onchange="setCurrency('runway',this.value)"> GH₵ Cedis</label>
+          <label style="font-size:14px;color:var(--cream);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="runway-currency" value="KSh" onchange="setCurrency('runway',this.value)"> KSh Shillings</label>
+          <label style="font-size:14px;color:var(--cream);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="runway-currency" value="R" onchange="setCurrency('runway',this.value)"> R Rand</label>
+          <label style="font-size:14px;color:var(--cream);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="runway-currency" value="$" onchange="setCurrency('runway',this.value)"> $ Dollar</label>
+          <label style="font-size:14px;color:var(--cream);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="radio" name="runway-currency" value="£" onchange="setCurrency('runway',this.value)"> £ Pounds</label>
+        </div>
+      </div>
       <div class="tool-row">
         <div class="tool-field">
-          <label>Monthly essential expenses ($)</label>
+          <label>Monthly essential expenses</label>
           <input type="number" id="runway1" placeholder="e.g. 800" min="0">
         </div>
         <div class="tool-field">
-          <label>Total current savings ($)</label>
+          <label>Total current savings</label>
           <input type="number" id="runway2" placeholder="e.g. 1200" min="0">
         </div>
       </div>
@@ -435,11 +471,11 @@ footer a{color:var(--muted);text-decoration:underline}
     <h2 class="section-title reveal">The full <em>Money Blueprint</em> system</h2>
     <p class="section-body reveal">The quiz is just the start. The complete guide goes 30 days deep so the change actually sticks.</p>
     <div class="get-grid">
+      <div class="get-cell reveal" style="border-color:rgba(184,136,30,0.5);background:rgba(184,136,30,0.06)"><span class="get-icon">💬</span><h3 style="color:var(--gold)">Family Money Scripts</h3><p>The actual words for the conversations most Africans dread: how to set a support limit with family, what to say when you can't send this month, how to handle sibling property without destroying the relationship. No Western finance book has this. We built it specifically for you.</p><span class="get-soon">In the guide — our most requested section</span></div>
       <div class="get-cell reveal"><span class="get-icon">🧠</span><h3>Money Blueprint Discovery</h3><p>Find the exact childhood patterns driving your financial behaviour and a step-by-step process to rewrite them for good.</p><span class="get-soon">In the guide</span></div>
       <div class="get-cell reveal"><span class="get-icon">🔍</span><h3>All 6 Full Type Profiles</h3><p>The complete psychological breakdown for every Money Type, including the Architect track for people who are already building well.</p><span class="get-soon">In the guide</span></div>
       <div class="get-cell reveal"><span class="get-icon">📓</span><h3>30-Day Journal System</h3><p>Daily prompts across four weeks. Every entry includes a practical action so you leave each day having done something, not just reflected.</p><span class="get-soon">In the guide</span></div>
       <div class="get-cell reveal"><span class="get-icon">🛠️</span><h3>Real Financial Tools</h3><p>Budget templates, debt tracker, emergency fund calculator, multi-currency guide and the Hidden Wealth Leak Audit, built for African financial lives.</p><span class="get-soon">Bonus for early buyers</span></div>
-      <div class="get-cell reveal"><span class="get-icon">💬</span><h3>Family Money Scripts</h3><p>The actual words for the conversations most Africans dread: setting support limits, sibling property, sending less without breaking relationships.</p><span class="get-soon">In the guide</span></div>
       <div class="get-cell reveal"><span class="get-icon">📈</span><h3>The Architect Track</h3><p>For people who already have the basics right. A dedicated section on what comes next, and the specific trap that takes down even the most disciplined builders.</p><span class="get-soon">In the guide</span></div>
       <div class="get-cell reveal" style="border:1px solid rgba(201,168,76,0.4);background:rgba(201,168,76,0.05);grid-column:1/-1;text-align:center;padding:36px 32px"><span class="get-icon" style="font-size:32px">✨</span><h3 style="font-size:19px;margin-bottom:10px">And much more inside the guide</h3><p style="max-width:540px;margin:0 auto;font-size:14px;color:var(--muted);line-height:1.7">There is a lot more waiting inside than what is listed here. We did not want to give everything away before you got there. Every person who picks this up finds something they were not expecting — something that hits closer to home than they thought a guide could. You will not regret it.</p><span class="get-soon" style="margin-top:14px">Revealed inside</span></div>
     </div>
@@ -448,7 +484,7 @@ footer a{color:var(--muted);text-decoration:underline}
 
 <section class="waitlist-section" id="waitlist">
   <h2 class="reveal">Be first.<br><em>Get it free.</em></h2>
-  <p class="reveal">Join the list and get The Money Blueprint at launch price, plus the full financial toolkit free for the first 100 people who sign up.</p>
+  <p class="reveal">The guide launches <strong style="color:var(--gold)">August 2026</strong>. Regular price: <strong style="color:var(--gold)">$27</strong>. The first 100 people on this list get it free.</p>
   <div class="main-wl-form reveal">
     <input class="main-wl-input" type="email" id="main-wl-email" placeholder="Enter your email">
     <button class="main-wl-btn" onclick="submitMainWaitlist()">Join the waitlist, it's free</button>
@@ -461,6 +497,7 @@ footer a{color:var(--muted);text-decoration:underline}
   <div class="footer-logo">The Money Blueprint</div>
   <p>A money mindset and mechanics system for Africans who are ready to stop surviving and start building.</p>
   <p style="margin-top:16px;font-size:12px">Got a question or want to collaborate? <a href="mailto:Kikelomo.e.adeniyi@gmail.com">Kikelomo.e.adeniyi@gmail.com</a></p>
+  <p style="margin-top:10px;font-size:13px"><a href="http://www.youtube.com/@kikelomoadeniyi" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:6px">▶ Watch on YouTube — @kikelomoadeniyi</a></p>
   <p style="margin-top:16px;font-size:11px;color:#4A4538">© 2026 The Money Blueprint. All rights reserved.</p>
 </footer>
 
@@ -831,7 +868,7 @@ function pickOpt(l){
 
 function qNext(){
   if(!ans[cur]) return;
-  if(cur===14){ showScreen('screen-gate'); return; }
+  if(cur===14){ showResultScreen(); return; }
   cur++; renderQ();
 }
 function qBack(){ if(cur>0){cur--;renderQ();} }
@@ -842,13 +879,7 @@ function getTally(){
   return t;
 }
 
-function submitEmail(){
-  const v = document.getElementById('gate-email').value.trim();
-  if(!v||!v.includes('@')){alert('Please enter a valid email address.');return;}
-  emailCollected = true;
-  saveEmail(v,'quiz-gate');
-  showResultScreen();
-}
+function submitEmail(){ showResultScreen(); }
 function skipEmail(){ showResultScreen(); }
 
 function showResultScreen(){
@@ -880,7 +911,7 @@ function showResultScreen(){
     chips.appendChild(ch);
   });
 
-  if(!emailCollected) document.getElementById('wlBox').style.display='block';
+  document.getElementById('wlBox').style.display='block';
   showScreen('screen-result');
   showProfile(winnerKey, tally, isTie, tiedKeys, sorted);
 }
@@ -941,12 +972,16 @@ function showActionPoints(winner){
 }
 
 // ── TOOLS ─────────────────────────────────────────────
+const currencySymbols = { leak: '₦', runway: '₦' };
+function setCurrency(tool, symbol){ currencySymbols[tool] = symbol; }
+
 function calcLeak(){
   const vals = [1,2,3,4,5].map(i=>parseFloat(document.getElementById('leak'+i).value)||0);
   const monthly = vals.reduce((a,b)=>a+b,0);
   const annual = monthly * 12;
   if(monthly===0){alert('Please enter at least one spending amount.');return;}
-  document.getElementById('leakNumber').textContent='$'+annual.toLocaleString();
+  const sym = currencySymbols['leak'] || '₦';
+  document.getElementById('leakNumber').textContent = sym + annual.toLocaleString();
   let msg='';
   if(annual < 1000) msg="That's $"+annual+" a year. Small individually, but those amounts compound over time. Redirect even half of this into savings and watch the difference.";
   else if(annual < 3000) msg="That's $"+annual+" leaking out every year. Over five years, that's $"+(annual*5).toLocaleString()+" that could have been working for you instead. The Spending Audit PDF breaks down exactly how to plug the biggest leaks first.";
@@ -961,7 +996,7 @@ function calcRunway(){
   if(expenses===0){alert('Please enter your monthly essential expenses.');return;}
   const months = savings/expenses;
   const rounded = Math.floor(months*10)/10;
-  document.getElementById('runwayNumber').textContent=rounded<1?'Less than 1':rounded.toFixed(1);
+  document.getElementById('runwayNumber').textContent = rounded < 1 ? 'Less than 1' : rounded.toFixed(1);
   let msg='';
   if(months<1) msg="Less than one month. If your income stopped today, you'd be in serious difficulty within weeks. The Emergency Fund Builder PDF gives you a step-by-step plan to extend this runway to at least three months, starting with whatever you have right now.";
   else if(months<3) msg=rounded.toFixed(1)+" months is a start, but the standard recommendation is at least three months of essential expenses. The Emergency Fund Builder PDF shows you exactly how to get there without disrupting your current financial life.";
